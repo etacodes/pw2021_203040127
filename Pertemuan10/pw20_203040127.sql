@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2021 at 12:46 PM
+-- Generation Time: May 17, 2021 at 09:16 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -73,11 +73,11 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `img`, `nrp`, `nama`, `email`, `jurusan`) VALUES
-(11, 'adi.jpg', '203040158', 'Adinata Kusuma Wardani', 'adinata206082@gmail.com', 'Teknik Informatika'),
-(12, 'riko.jpeg', '203040127', 'Ericko Timur Apandi', 'erickotimur2002@gmail.com', 'Teknik Informatika'),
-(13, 'uyuy.jpeg', '203040122', 'Andi Rahman Hakim', 'Acilliitle166@gmail.com', 'Teknik Informatika'),
 (14, 'opik.jpg', '203040142', 'Muhamad Taufik Mulyadi', 'Muhamadtaufikm10@gmail.com', 'Teknik Informatika'),
-(15, 'galih.jpeg', '203040174', 'Linggih Kusuma Dilagga', 'Galihk250@gmail.com', 'Teknik Informatika');
+(15, 'galih.jpeg', '203040174', 'Linggih Kusuma Dilagga', 'Galihk250@gmail.com', 'Teknik Informatika'),
+(17, 'adi.jpg', '203040158', 'Adinata Kusuma Wardani', 'adinata206082@gmail.com', 'Teknik Informatika'),
+(18, 'uyuy.jpeg', '203040122', 'Andi Rahman Hakim', 'Acilliitle166@gmail.com', 'Teknik Informatika'),
+(26, 'riko.jpeg', '203040127', 'Ericko Timur Apandi', 'erickotimur2002@gmail.com', 'Teknik Informatika');
 
 --
 -- Indexes for dumped tables
@@ -109,7 +109,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
