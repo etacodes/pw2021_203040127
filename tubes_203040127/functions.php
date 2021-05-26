@@ -26,11 +26,11 @@ function query($query)
 
 function upload()
 {
-	$nama_file = $_FILES['gambar']['name'];
-	$tipe_file = $_FILES['gambar']['type'];
-	$ukuran_file = $_FILES['gambar']['size'];
-	$error = $_FILES['gambar']['error'];
-	$tmp_file = $_FILES['gambar']['tmp_name'];
+	$nama_file = $_FILES['Gambar']['name'];
+	$tipe_file = $_FILES['Gambar']['type'];
+	$ukuran_file = $_FILES['Gambar']['size'];
+	$error = $_FILES['Gambar']['error'];
+	$tmp_file = $_FILES['Gambar']['tmp_name'];
 
 	// ketika tidak ada gambar yang dipilih
 	if ($error == 4) {
@@ -84,21 +84,21 @@ function tambah($data)
 	$conn = koneksi();
 
 	// $gambar = htmlspecialchars($data['gambar']);
-	$nama = htmlspecialchars($data['Nama']);
-	$nrp = htmlspecialchars($data['Harga']);
-	$email = htmlspecialchars($data['Tahun Pembuatan']);
-	$jurusan = htmlspecialchars($data['Gambar']);
+	$Nama = htmlspecialchars($data['Nama']);
+	$Harga = htmlspecialchars($data['Harga']);
+	$Diproduksi = htmlspecialchars($data['Diproduksi']);
+	$Gambar = htmlspecialchars($data['Gambar']);
 
 	// upload gambar
-	$gambar = upload();
-	if (!$gambar) {
+	$Gambar = upload();
+	if (!$Gambar) {
 		return false;
 	}
 
 	$query = "INSERT INTO
 	            tv
 	            VALUES
-	          (null, '$gambar', '$nama', '$nrp', '$email', '$jurusan');
+	          (null,  '$Nama', '$Harga', '$Diproduksi', '$Gambar');
 	          ";
 	mysqli_query($conn, $query);
 	
@@ -110,9 +110,9 @@ function hapus($id)
 	$conn = koneksi();
 
 	// menghapus gambar di folder img
-	$mhs = query("SELECT * FROM tv WHERE id = $id");
-	if ($mhs['Gambar'] != 'nofoto.jpg') {
-		unlink('img/' . $mhs['Gambar']);
+	$tv = query("SELECT * FROM tv WHERE Id = $id");
+	if ($tv['Gambar'] != 'nofoto.jpg') {
+		unlink('img/' . $tv['Gambar']);
 	}
 	
 	mysqli_query($conn, "DELETE FROM tv WHERE id = $id") or die(mysqli_query($conn));
@@ -125,13 +125,13 @@ function ubah($data)
 
 	$id = ($data['id']);
 	$gambar_lama = htmlspecialchars($data['gambar_lama']);
-	$nama = htmlspecialchars($data['nama']);
-	$nrp = htmlspecialchars($data['nrp']);
-	$email = htmlspecialchars($data['email']);
-	$jurusan = htmlspecialchars($data['jurusan']);
+	$Nama = htmlspecialchars($data['Nama']);
+	$Harga = htmlspecialchars($data['Harga']);
+	$Diproduksi = htmlspecialchars($data['Diproduksi']);
+	
 
-	$gambar = upload();
-	if (!$gambar) {
+	$Gambar = upload();
+	if (!$Gambar) {
 		return false;
 	}
 
@@ -139,12 +139,11 @@ function ubah($data)
 		$gambar = $gambar_lama;
 	}
 
-	$query = "UPDATE mahasiswa SET
-				nama = '$nama',
-				nrp = '$nrp',
-				email = '$email',
-				jurusan = '$jurusan',
-				gambar = '$gambar'
+	$query = "UPDATE tv SET
+				Nama = '$Nama',
+				Harga = '$Harga',
+				Diproduksi = '$Diproduksi',
+				Gambar = '$gambar'
 				WHERE id = $id";
 	mysqli_query($conn, $query);
 	
@@ -155,10 +154,10 @@ function cari($keyword)
 {
   $conn = koneksi();
 
-  $query = "SELECT * FROM mahasiswa
+  $query = "SELECT * FROM tv
               WHERE 
-            nama LIKE '%$keyword%' OR
-            nrp LIKE '%$keyword%'
+            Nama LIKE '%$keyword%' OR
+            Harga LIKE '%$keyword%'
             ";
 
   $result = mysqli_query($conn, $query);

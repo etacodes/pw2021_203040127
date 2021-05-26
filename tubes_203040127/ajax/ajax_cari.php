@@ -1,6 +1,6 @@
 <?php 
 require '../functions.php';
-$mahasiswa = cari($_GET['keyword']);
+$tv = cari($_GET['keyword']);
 ?>
 
 <table border="1" cellpadding="10" cellspacing="0s">
@@ -8,10 +8,10 @@ $mahasiswa = cari($_GET['keyword']);
 		<th>#</th>
 		<th>Gambar</th>
 		<th>Nama</th>
-		<th>Aksi</th>
+		<th>Lainnya</th>
 	</tr>
 
-	<?php if(empty($mahasiswa)) : ?>
+	<?php if(empty($tv)) : ?>
 	<tr>
 		<td colspan="4">
 			<p style="color: red; font-style: italic;">data mahasiswa tidak ditemukan!</p>
@@ -20,13 +20,13 @@ $mahasiswa = cari($_GET['keyword']);
 	<?php endif; ?>
 
 	<?php $i = 1; 
-	foreach($mahasiswa as $mhs) : ?>
+	foreach($tv as $tv) : ?>
 	<tr>
 		<td><?= $i++; ?></td>
-		<td><img src="img/<?= $mhs['gambar']; ?>" width="70"></td>
-		<td><?= $mhs['nama']; ?></td>
+		<td><img src="img/<?= $tv['Gambar']; ?>" width="70"></td>
+		<td><?= $tv['Nama']; ?></td>
 		<td>
-			<a href="detail.php?id=<?= $mhs['id']; ?>">lihat detail</a>
+			<a href="detail.php?id=<?= $tv['id']; ?>">lihat detail</a>
 		</td>
 	</tr>
 	<?php endforeach; ?>

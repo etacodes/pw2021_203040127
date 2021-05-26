@@ -22,9 +22,9 @@ if (isset($_POST['cari'])) {
 </head>
 <body>
 	<a href="logout.php">Logout</a>
-	<h3>Daftar Mahasiswa</h3>
+	<h3>Daftar TV</h3>
 
-	<a href="tambah.php">Tambah Data Mahasiswa</a>
+	<a href="tambah.php">Tambah Data TV</a>
   	<br><br>
 
   	<form action="" method="POST">
@@ -45,19 +45,19 @@ if (isset($_POST['cari'])) {
 		<?php if(empty($tv)) : ?>
 		<tr>
 			<td colspan="4">
-				<p style="color: red; font-style: italic;">data mahasiswa tidak ditemukan!</p>
+				<p style="color: red; font-style: italic;">data TV tidak ditemukan!</p>
 			</td>
 		</tr>
 		<?php endif; ?>
 
 		<?php $i = 1; 
-		foreach($tv as $mhs) : ?>
+		foreach($tv as $tv) : ?>
 		<tr>
 			<td><?= $i++; ?></td>
-			<td><img src="img/<?= $mhs['Gambar']; ?>" width="100"></td>
-			<td><?= $mhs['Nama']; ?></td>
+			<td><img src="img/<?= $tv['Gambar']; ?>" width="100"></td>
+			<td><?= $tv['Nama']; ?></td>
 			<td>
-				<a href="detail.php?id=<?= $mhs['Id']; ?>">lihat detail</a>
+				<a href="detail.php?id=<?= $tv['id']; ?>">lihat detail</a>
 			</td>
 		</tr>
 		<?php endforeach; ?>

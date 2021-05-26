@@ -9,16 +9,16 @@ if (!isset($_SESSION['login'])) {
 require 'functions.php';
 
 // jika tidak ada URL
-if (!isset($_GET['Id'])) {
+if (!isset($_GET['id'])) {
   header("Location: index.php");
   exit;
 }
 
 // ambil id dari URL
-$id = $_GET['Id'];
+$id = $_GET['id'];
 
 // query mahasiswa berdasarkan id
-$mhs = query("SELECT * FROM mahasiswa WHERE id = $id");
+$tv = query("SELECT * FROM tv WHERE id = $id");
 
 // cek apakah tombol tambah sudah ditekan
 if (isset($_POST['ubah'])) {
@@ -37,45 +37,40 @@ if (isset($_POST['ubah'])) {
 <html>
 
 <head>
-  <title>Ubah Data Mahasiswa</title>
+  <title>Ubah Data TV</title>
 </head>
 <body>
-    <h3>Form Ubah Data Mahasiswa</h3>
+    <h3>Form Ubah Data TV</h3>
     <form action="" method="POST" enctype="multipart/form-data">
         <ul>
-          <input type="hidden" name="id" value="<?= $mhs['Id']; ?>">
+          <input type="hidden" name="id" value="<?= $tv['id']; ?>">
             
             <li>
                 <label>
                   Nama :
-                  <input type="text" name="nama" autofocus required value="<?= $mhs['Nama']; ?>">
+                  <input type="text" name="nama" autofocus required value="<?= $tv['Nama']; ?>">
                 </label><br><br>
             </li>
             <li>
                 <label>
-                  NRP :
-                  <input type="text" name="nrp" required value="<?= $mhs['nrp']; ?>">
+                  Harga :
+                  <input type="text" name="harga" required value="<?= $tv['Harga']; ?>">
                 </label><br><br>
             </li>
             <li>
                 <label>
-                  Email :
-                  <input type="text" name="email" required value="<?= $mhs['email']; ?>">
+                  Diproduksi :
+                  <input type="text" name="diproduksi" required value="<?= $tv['Diproduksi']; ?>">
                 </label><br><br>
             </li>
+            
             <li>
-                <label>
-                  Jurusan :
-                  <input type="text" name="jurusan" required value="<?= $mhs['jurusan']; ?>">
-                </label><br><br>
-            </li>
-            <li>
-                <input type="hidden" name="gambar_lama" value="<?= $mhs['gambar']; ?>">
+                <input type="hidden" name="gambar_lama" value="<?= $tv['Gambar']; ?>">
                 <label>
                   Gambar :
-                  <input type="file" name="gambar" class="gambar" onchange="previewImage()">
+                  <input type="file" name="Gambar" class="Gambar" onchange="previewImage()">
                 </label><br><br>
-                <img src="img/<?= $mhs['Gambar']; ?> " width="120" style="display: block;" class="img-preview">
+                <img src="img/<?= $tv['Gambar']; ?> " width="120" style="display: block;" class="img-preview">
                 <br>
             </li>
             <li>

@@ -25,10 +25,10 @@ if (isset($_POST['tambah'])) {
 <html>
 
 <head>
-  <title>Tambah Data Mahasiswa</title>
+  <title>Tambah Data TV</title>
 </head>
 <body>
-    <h3>Form Tambah Data Mahasiswa</h3>
+    <h3>Form Tambah Data TV</h3>
     <form action="" method="POST" enctype="multipart/form-data">
         <ul>
             <li>
@@ -45,15 +45,15 @@ if (isset($_POST['tambah'])) {
             </li>
             <li>
                 <label>
-                  Tahun Pembuatan :
-                  <input type="text" name="Tahun Pembuatan" required>
+                  Diproduksi :
+                  <input type="text" name="Diproduksi" required>
                 </label><br><br>
             </li>
             
             <li>
                 <label>
                   Gambar :
-                  <input type="file" name="gambar" class="gambar" onchange="previewImage()">
+                  <input type="file" name="Gambar" class="Gambar" onchange="previewImage()">
                 </label><br><br>
                 <img src="img/nofoto.jpg" width="120" style="display: block;" class="img-preview">
                 <br>              
