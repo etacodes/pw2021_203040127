@@ -7,11 +7,11 @@ if (!isset($_SESSION['login'])) {
 }
 
 require 'functions.php';
-$mahasiswa = query("SELECT * FROM mahasiswa");
+$tv = query("SELECT * FROM tv");
 
 // ketika tombol cari diklik
 if (isset($_POST['cari'])) {
-	$mahasiswa = cari($_POST['keyword']);
+	$tv = cari($_POST['keyword']);
 }
 ?>
 
@@ -42,7 +42,7 @@ if (isset($_POST['cari'])) {
 			<th>Lainnya</th>
 		</tr>
 
-		<?php if(empty($mahasiswa)) : ?>
+		<?php if(empty($tv)) : ?>
 		<tr>
 			<td colspan="4">
 				<p style="color: red; font-style: italic;">data mahasiswa tidak ditemukan!</p>
@@ -51,13 +51,13 @@ if (isset($_POST['cari'])) {
 		<?php endif; ?>
 
 		<?php $i = 1; 
-		foreach($mahasiswa as $mhs) : ?>
+		foreach($tv as $mhs) : ?>
 		<tr>
 			<td><?= $i++; ?></td>
-			<td><img src="img/<?= $mhs['gambar']; ?>" width="100"></td>
-			<td><?= $mhs['nama']; ?></td>
+			<td><img src="img/<?= $mhs['Gambar']; ?>" width="100"></td>
+			<td><?= $mhs['Nama']; ?></td>
 			<td>
-				<a href="detail.php?id=<?= $mhs['id']; ?>">lihat detail</a>
+				<a href="detail.php?id=<?= $mhs['Id']; ?>">lihat detail</a>
 			</td>
 		</tr>
 		<?php endforeach; ?>

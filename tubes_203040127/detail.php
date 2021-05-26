@@ -12,25 +12,25 @@ require 'functions.php';
 $id = $_GET['id'];
 
 // Query mahasiswa berdasarkan id
-$mhs = query("SELECT * FROM mahasiswa WHERE id = $id");
+$mhs = query("SELECT * FROM tv WHERE id = $id");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Detail Mahasiswa</title>
+	<title>Detail TV</title>
 </head>
 <body>
 	
-	<h3>Detail Mahasiswa</h3>
+	<h3>Detail TV</h3>
 
 	<ul>
-		<li><img src="img/<?= $mhs['gambar']; ?>" width="150"></li>
-		<li>NRP : <?= $mhs['nrp']; ?></li>
-		<li>Nama : <?= $mhs['nama']; ?></li>
-		<li>Email : <?= $mhs['email']; ?></li>
-		<li>Jurusan : <?= $mhs['jurusan']; ?></li>
-		<li><a href="ubah.php?id=<?= $mhs['id']; ?>">ubah</a> | <a href="hapus.php?id=<?= $mhs['id']; ?>" onclick= "return confirm('apakah anda yakin?');">hapus</a></li>
+		<li><img src="img/<?= $mhs['Gambar']; ?>" width="150"></li>
+		<li>Nama : <?= $mhs['Nama']; ?></li>
+		<li>Harga : <?= $mhs['Harga']; ?></li>
+		<li>Tahun Pembuatan : <?= $mhs['Tahun Pembuatan']; ?></li>
+		
+		<li><a href="ubah.php?id=<?= $mhs['Id']; ?>">ubah</a> | <a href="hapus.php?id=<?= $mhs['Id']; ?>" onclick= "return confirm('apakah anda yakin?');">hapus</a></li>
 		<li><a href="index.php">Kembali ke daftar mahasiswa</a></li>
 	</ul>
 

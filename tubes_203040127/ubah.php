@@ -9,13 +9,13 @@ if (!isset($_SESSION['login'])) {
 require 'functions.php';
 
 // jika tidak ada URL
-if (!isset($_GET['id'])) {
+if (!isset($_GET['Id'])) {
   header("Location: index.php");
   exit;
 }
 
 // ambil id dari URL
-$id = $_GET['id'];
+$id = $_GET['Id'];
 
 // query mahasiswa berdasarkan id
 $mhs = query("SELECT * FROM mahasiswa WHERE id = $id");
@@ -43,12 +43,12 @@ if (isset($_POST['ubah'])) {
     <h3>Form Ubah Data Mahasiswa</h3>
     <form action="" method="POST" enctype="multipart/form-data">
         <ul>
-          <input type="hidden" name="id" value="<?= $mhs['id']; ?>">
+          <input type="hidden" name="id" value="<?= $mhs['Id']; ?>">
             
             <li>
                 <label>
                   Nama :
-                  <input type="text" name="nama" autofocus required value="<?= $mhs['nama']; ?>">
+                  <input type="text" name="nama" autofocus required value="<?= $mhs['Nama']; ?>">
                 </label><br><br>
             </li>
             <li>
@@ -75,7 +75,7 @@ if (isset($_POST['ubah'])) {
                   Gambar :
                   <input type="file" name="gambar" class="gambar" onchange="previewImage()">
                 </label><br><br>
-                <img src="img/<?= $mhs['gambar']; ?> " width="120" style="display: block;" class="img-preview">
+                <img src="img/<?= $mhs['Gambar']; ?> " width="120" style="display: block;" class="img-preview">
                 <br>
             </li>
             <li>

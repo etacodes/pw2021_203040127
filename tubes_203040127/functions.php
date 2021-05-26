@@ -84,10 +84,10 @@ function tambah($data)
 	$conn = koneksi();
 
 	// $gambar = htmlspecialchars($data['gambar']);
-	$nama = htmlspecialchars($data['nama']);
-	$nrp = htmlspecialchars($data['nrp']);
-	$email = htmlspecialchars($data['email']);
-	$jurusan = htmlspecialchars($data['jurusan']);
+	$nama = htmlspecialchars($data['Nama']);
+	$nrp = htmlspecialchars($data['Harga']);
+	$email = htmlspecialchars($data['Tahun Pembuatan']);
+	$jurusan = htmlspecialchars($data['Gambar']);
 
 	// upload gambar
 	$gambar = upload();
@@ -96,7 +96,7 @@ function tambah($data)
 	}
 
 	$query = "INSERT INTO
-	            mahasiswa
+	            tv
 	            VALUES
 	          (null, '$gambar', '$nama', '$nrp', '$email', '$jurusan');
 	          ";
@@ -110,12 +110,12 @@ function hapus($id)
 	$conn = koneksi();
 
 	// menghapus gambar di folder img
-	$mhs = query("SELECT * FROM mahasiswa WHERE id = $id");
-	if ($mhs['gambar'] != 'nofoto.jpg') {
-		unlink('img/' . $mhs['gambar']);
+	$mhs = query("SELECT * FROM tv WHERE id = $id");
+	if ($mhs['Gambar'] != 'nofoto.jpg') {
+		unlink('img/' . $mhs['Gambar']);
 	}
 	
-	mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id") or die(mysqli_query($conn));
+	mysqli_query($conn, "DELETE FROM tv WHERE id = $id") or die(mysqli_query($conn));
 	return mysqli_affected_rows($conn);
 }
 

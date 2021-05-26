@@ -34,27 +34,22 @@ if (isset($_POST['tambah'])) {
             <li>
                 <label>
                   Nama :
-                  <input type="text" name="nama" autofocus required>
+                  <input type="text" name="Nama" autofocus required>
                 </label><br><br>
             </li>
             <li>
                 <label>
-                  NRP :
-                  <input type="text" name="nrp" required>
+                  Harga :
+                  <input type="text" name="Harga" required>
                 </label><br><br>
             </li>
             <li>
                 <label>
-                  Email :
-                  <input type="text" name="email" required>
+                  Tahun Pembuatan :
+                  <input type="text" name="Tahun Pembuatan" required>
                 </label><br><br>
             </li>
-            <li>
-                <label>
-                  Jurusan :
-                  <input type="text" name="jurusan" required>
-                </label><br><br>
-            </li>
+            
             <li>
                 <label>
                   Gambar :
@@ -73,7 +68,7 @@ if (isset($_POST['tambah'])) {
         // preview image untuk tambah dan ubah
         function previewImage() 
         {
-          const gambar = document.querySelector('.gambar');
+          const gambar = document.querySelector('.Gambar');
           const imgPreview = document.querySelector('.img-preview');
 
           const oFReader = new FileReader();
